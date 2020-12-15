@@ -15,13 +15,16 @@ public class ExploreExp {// class open
         double x = 1.0;
         // Scanner input= new Scanner(System.in);
 
-        //ystem.out.printf("Math.E is %20.18f\n", Math.E);                   //Required in b)
-        //System.out.printf("Math.exp(1.0)is %20.18f\n", Math.exp(1.0));     //Required in b)
+        // ystem.out.printf("Math.E is %20.18f\n", Math.E); //Required in b)
+        // System.out.printf("Math.exp(1.0)is %20.18f\n", Math.exp(1.0)); //Required in
+        // b)
         for (double n = 0; n < 21; n++) {
             ex += (factorial(Math.pow(x, n))) / (factorial(n));
             System.out.printf("%20.18f\n", ex);
         }
-        System.out.printf("\nWe got e^x(ex) here: %20.18f\n\n", ex);         // expvalue with a precisionof 18 decimal places: use %20.18fin the format string of a System.out.printfmethod
+        System.out.printf("\nWe got e^x(ex) here: %20.18f\n\n", ex); // expvalue with a precisionof 18 decimal places:
+                                                                     // use %20.18fin the format string of a
+                                                                     // System.out.printfmethod
 
         // Test the calcExp below , takes in two inputs ,x and nMax to return the
         // exponential value
@@ -48,25 +51,19 @@ public class ExploreExp {// class open
             // printTable("exp estimates",expEstimates);
         }
 
-
-
-
-
-        double[] newArray= new double[20];
+        double[] newArray = new double[20];
         int i = 0;
-        
-        while(i<20){
+
+        while (i < 20) {
             newArray[i] = calcExp(1, i);
-            System.out.printf("\nThis is form the newArry test:%s\n",newArray[i]);
+            System.out.printf("\nThis is form the newArry test:%s\n", newArray[i]);
             i++;
             System.out.println(i);
         }
 
-        printTable("NewArry",newArray);
-        
-        printTable("exp(2) estimates", genExpEstimates(2.0, 11));
-        
+        printTable("NewArry", newArray);
 
+        printTable("exp(2) estimates", genExpEstimates(2.0, 11));
 
     }// main close
 
@@ -89,34 +86,33 @@ public class ExploreExp {// class open
     // d & e creting a method ,ad method testing
     public static double calcExp(double x, int nMax) {
         double reult = 0.0;
-        double[] estimateArr=new double[20];
+        double[] estimateArr = new double[20];
         int i = 0;
         double forPassingToFactorialFonctionBecuseHedoNotTakeInt = i;
-        while (i<nMax) {
+        while (i < nMax) {
             forPassingToFactorialFonctionBecuseHedoNotTakeInt = i;
-            reult =reult + (factorial(Math.pow(x, i))) / (factorial(forPassingToFactorialFonctionBecuseHedoNotTakeInt));
-            estimateArr[i]=reult;
+            reult = reult
+                    + (factorial(Math.pow(x, i))) / (factorial(forPassingToFactorialFonctionBecuseHedoNotTakeInt));
+            estimateArr[i] = reult;
             i++;
         }
         return reult;
     }
 
+    public static double[] genExpEstimates(double x, int nEstimates) {
 
-    public static double[] genExpEstimates (double x, int nEstimates){
-
-
-        double[] newArray= new double[20];
+        double[] newArray = new double[nEstimates];
         int i = 0;
-        
-        while(i<nEstimates){
+
+        while (i < nEstimates) {
             newArray[i] = calcExp(x, i);
-            System.out.printf("\nThis is form the newArry test:%s\n",newArray[i]);
+            System.out.printf("\nThis is form the newArry test:%s\n", newArray[i]);
             i++;
             System.out.println(i);
         }
 
-    return newArray;
-        
+        return newArray;
+
     }
 
 }// close
