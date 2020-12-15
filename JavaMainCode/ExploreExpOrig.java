@@ -6,7 +6,7 @@
  */
 
 // import java.util.Scanner;
-public class ExploreExp {// class open
+public class ExploreExpOrig {// class open
 
     private static double ex;
 
