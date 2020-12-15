@@ -1,71 +1,19 @@
-/**
+import jdk.javadoc.internal.doclets.toolkit.resources.doclets;
+
+/*
  * Challeng#5 ExploreExp
- * 
  * @author (Qinyuan Liu 20137095; Mandisi Marshal Sibanda 20146817)
  * @version 0.0.1
  */
 
-// import java.util.Scanner;
-public class ExploreExp {// class open
-
-    private static double ex;
-
-    public static void main(String[] args) {// main open
-
-        double x = 1.0;
-        // Scanner input= new Scanner(System.in);
-
-        // ystem.out.printf("Math.E is %20.18f\n", Math.E); //Required in b)
-        // System.out.printf("Math.exp(1.0)is %20.18f\n", Math.exp(1.0)); //Required in
-        // b)
-        for (double n = 0; n < 21; n++) {
-            ex += (factorial(Math.pow(x, n))) / (factorial(n));
-            System.out.printf("%20.18f\n", ex);
-        }
-        System.out.printf("\nWe got e^x(ex) here: %20.18f\n\n", ex); // expvalue with a precisionof 18 decimal places:
-                                                                     // use %20.18fin the format string of a
-                                                                     // System.out.printfmethod
-
-        // Test the calcExp below , takes in two inputs ,x and nMax to return the
-        // exponential value
-        System.out.println(".....Testing the calcExp method:....");
-        double expectedExp = Math.E;
-        double actualExp = calcExp(1, 20);
-
-        if (expectedExp == actualExp) {
-            System.out.printf("Test Passed ecpected=%.18f actual=%18f\n", expectedExp, actualExp);
-        } else
-            System.out.printf("Test failed! %.18f %.18f\n", expectedExp, actualExp);
-
-        // f create another for statement and store the
-
-        double[] expEstimates = new double[21];
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.printf("This is expcetedEXP: %s", expectedExp);
-
-        for (int i = 0; i < expEstimates.length; i++) {
-            expEstimates[i] = calcExp(1, 20);
-            System.out.println(expEstimates[i]);
-
-            System.out.println(i);
-            // printTable("exp estimates",expEstimates);
-        }
-
-        double[] newArray = new double[20];
-        int i = 0;
-
-        while (i < 20) {
-            newArray[i] = calcExp(1, i);
-            System.out.printf("\nThis is form the newArry test:%s\n", newArray[i]);
-            i++;
-            System.out.println(i);
-        }
-
-        printTable("NewArry", newArray);
-
-        printTable("exp(2) estimates", genExpEstimates(2.0, 11));
-
-    }// main close
+public class ExploreExp {
+    public static void main(String[] args) {
+        partA();
+        partB();
+        partC();
+        partD();
+        partE();
+    }
 
     public static void printTable(String title, double[] array) {
         System.out.println(title);
@@ -83,7 +31,7 @@ public class ExploreExp {// class open
         return result;
     }
 
-    // d & e creting a method ,ad method testing
+    //javadoc Requried
     public static double calcExp(double x, int nMax) {
         double reult = 0.0;
         double[] estimateArr = new double[20];
@@ -115,4 +63,36 @@ public class ExploreExp {// class open
 
     }
 
-}// close
+    public static void partA(){
+        //nothing here~~
+    }
+    public static void partB(){
+        System.out.printf( "Math.Eis %20.18f\n", Math.E);
+        System.out.printf( "Math.exp(1.0) is %20.18f\n", Math.exp( 1.0 ));
+
+    }
+    public static void partC(){
+        double ex = 0.0;
+        ex = calcExp(1,20);
+        System.out.println(ex);
+    }
+    public static void partD(){
+        //javadoc 
+    }
+    public static void partE(){
+        if (testCalcExp(120.0, calcExp(1, 2), 2.0)){
+            System.out.println("Good~~~~");
+        }
+        else{
+            System.out.println("Bad~~~~");
+        }
+    }
+
+    public static boolean testCalcExp(double expectedValue,double returedValue,double errorRange){
+        if (Math.abs(returedValue - expectedValue) < errorRange){
+            return true;
+        }
+        else
+            return false;
+    }
+}
