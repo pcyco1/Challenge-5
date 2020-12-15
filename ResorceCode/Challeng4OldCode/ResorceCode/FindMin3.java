@@ -44,6 +44,10 @@ public class FindMin3
         rusult = Array.getInt(numArry,0);
         System.out.printf("The minimum of numbers entered is %s: ",rusult);
         //System.out.println(Arrays.toString(numArry)); Debug window 
+        if (1 == 4){
+            int count;
+            count = 0;
+        }
 
     }
 }
